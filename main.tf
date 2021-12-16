@@ -9,10 +9,6 @@ data "terraform_remote_state" "iksws" {
   }
 }
 
-output "iksws" {
-  value = data.terraform_remote_state.iksws
-}
-
 resource helm_release helloiksfrtfcb {
   name       = "helloiksapp"
   namespace = "default"
