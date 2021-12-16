@@ -1,8 +1,3 @@
-variable "ikswsname" {
-  type = string
-  default = "DEVNET-1291"
-}
-
 #Helm install of sample app on IKS
 data "terraform_remote_state" "iksws" {
   backend = "remote"
