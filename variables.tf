@@ -15,3 +15,8 @@ variable "secretkey" {
   type        = string
   description = "Secret Key or file location"
 }
+variable "clustername" {
+  type        = string
+  description = "k8s cluster name"
+  default     = "iksterraformk8scluster"
+}
