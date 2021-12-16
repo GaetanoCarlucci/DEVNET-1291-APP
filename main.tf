@@ -4,17 +4,6 @@ provider "intersight" {
   endpoint  = var.endpoint
 }
 
-#Helm install of sample app on IKS
-data "terraform_remote_state" "iksws" {
-  backend = "remote"
-  config = {
-    organization = "gcarlucc"
-    workspaces = {
-      name = var.ikswsname
-    }
-  }
-}
-
 data "intersight_kubernetes_cluster" "kubeconfig" {
   name = var.cluster_names["iksterraformk8scluster"]
 }
