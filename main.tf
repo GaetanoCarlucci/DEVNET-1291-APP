@@ -17,7 +17,7 @@ provider "helm" {
   }
 }
 
-resource helm_release helloiksfrtfcb {
+resource "helm_release" "helloiksfrtfcb" {
   name       = "helloiksapp"
   namespace = "default"
   chart = "https://github.com/GaetanoCarlucci/DEVNET-1291-APP/raw/main/helloiks-0.1.0.tgz"
@@ -26,4 +26,4 @@ resource helm_release helloiksfrtfcb {
     name  = "MESSAGE"
     value = "Hello IKS from TFCB!!"
   }
-}
+} 
