@@ -5,7 +5,7 @@ provider "intersight" {
 }
 
 data "intersight_kubernetes_cluster" "kubeconfig" {
-  name = var.cluster_names["iksterraformk8scluster"]
+  name = var.cluster_names
 }
 
 provider "helm" {
