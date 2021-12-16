@@ -11,6 +11,7 @@ data "terraform_remote_state" "iksws" {
 
 variable "ikswsname" {
   type = string
+  default = "DEVNET-1291"
 }
 
 resource helm_release helloiksfrtfcb {
