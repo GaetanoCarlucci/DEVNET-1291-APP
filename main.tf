@@ -1,3 +1,8 @@
+variable "ikswsname" {
+  type = string
+  default = "DEVNET-1291"
+}
+
 #Helm install of sample app on IKS
 data "terraform_remote_state" "iksws" {
   backend = "remote"
@@ -7,11 +12,6 @@ data "terraform_remote_state" "iksws" {
       name = var.ikswsname
     }
   }
-}
-
-variable "ikswsname" {
-  type = string
-  default = "DEVNET-1291"
 }
 
 resource helm_release helloiksfrtfcb {
