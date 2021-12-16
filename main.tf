@@ -9,17 +9,6 @@ data "terraform_remote_state" "iksws" {
   }
 }
 
-resource helm_release helloiksfrtfcb {
-  name       = "helloiksapp"
-  namespace = "default"
-  chart = "https://github.com/GaetanoCarlucci/DEVNET-1291-APP/raw/main/helloiks-0.1.0.tgz"
-
-  set {
-    name  = "MESSAGE"
-    value = "Hello IKS from TFCB!!"
-  }
-}
-
 data "intersight_kubernetes_cluster" "kubeconfig" {
   name = var.cluster_names["iksterraformk8scluster"]
 }
@@ -30,5 +19,16 @@ provider "helm" {
     client_certificate = base64decode(yamldecode(base64decode(data.intersight_kubernetes_cluster.kubeconfig.results[0].kube_config)).users[0].user.client-certificate-data)
     client_key = base64decode(yamldecode(base64decode(data.intersight_kubernetes_cluster.kubeconfig.results[0].kube_config)).users[0].user.client-key-data)
     cluster_ca_certificate = base64decode(yamldecode(base64decode(data.intersight_kubernetes_cluster.kubeconfig.results[0].kube_config)).clusters[0].cluster.certificate-authority-data)
+  }
+}
+
+resource helm_release helloiksfrtfcb {
+  name       = "helloiksapp"
+  namespace = "default"
+  chart = "https://github.com/GaetanoCarlucci/DEVNET-1291-APP/raw/main/helloiks-0.1.0.tgz"
+
+  set {
+    name  = "MESSAGE"
+    value = "Hello IKS from TFCB!!"
   }
 }
