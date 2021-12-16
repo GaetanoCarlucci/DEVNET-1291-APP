@@ -10,7 +10,7 @@ data "terraform_remote_state" "iksws" {
 }
 
 output "iksws" {
-  value = terraform_remote_state.iksws
+  value = data.terraform_remote_state.iksws
 }
 
 resource helm_release helloiksfrtfcb {
